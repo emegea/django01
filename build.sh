@@ -10,7 +10,5 @@ python manage.py migrate
 
 # Crear superusuario solo si las variables de entorno están configuradas
 if [ "$CREATE_SUPERUSER" == "True" ]; then
-    python manage.py createsuperuser --no-input \
-        --username $DJANGO_SUPERUSER_USERNAME \
-        --email $DJANGO_SUPERUSER_EMAIL
+    python crear_superusuario.py
 fi
