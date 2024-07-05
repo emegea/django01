@@ -1,0 +1,27 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block titulo %}HACÉ TU RESERVA ! » Canchas Cancheras{% endblock %}
+{% block extra_css_js %}
+  <link rel="stylesheet" href="{% static 'web/css/cancha_personalizada.css' %}">
+{% endblock %}
+
+{% block principal %}
+<main id="cancha_personalizada">
+  <section class="contenedor">
+    <h1><i class="fa-regular fa-futbol"></i> Personalizá tu cancha</h1>
+    <div class="row">
+      <form id="formulario_cancha_personalizada" class="w50" method="post" action="{% url 'cancha_personalizada' %}">
+        {% csrf_token %}
+        <h2>Opciones de cosntrucción</h2>
+        {{ cancha_form }}
+        <h2>Tus datos personales</h2>
+        {{ cliente_form }}
+        <h2>Comentarios Adicionales</h2>
+        {{ venta_form }}
+        <input type="submit" value="» Enviar cotización" class="boton">
+      </form>
+      <ul class="column w50"></ul>  
+    </div>    
+  </section>
+</main>
+{% endblock %}
